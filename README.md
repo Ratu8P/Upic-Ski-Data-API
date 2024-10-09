@@ -1,1 +1,1 @@
-# Upic-Ski-Data-API
+# Upic-Data-API
