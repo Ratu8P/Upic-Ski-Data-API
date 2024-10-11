@@ -14,17 +14,16 @@ public class SkierServlet extends HttpServlet {
         res.setContentType("text/plain");
         String urlPath = req.getPathInfo();
 
-        // 检查URL是否存在
+        // check if the url exist
         if (urlPath == null || urlPath.isEmpty()) {
             res.setStatus(HttpServletResponse.SC_NOT_FOUND);
             res.getWriter().write("Missing parameters");
             return;
         }
 
-        // 分割 URL 路径
         String[] urlParts = urlPath.split("/");
 
-        // 验证 URL 是否有效
+        // validate url
         if (!isUrlValid(urlParts)) {
             res.setStatus(HttpServletResponse.SC_NOT_FOUND);
             res.getWriter().write("Invalid URL");
@@ -36,7 +35,7 @@ public class SkierServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        // 处理POST请求，假设你在POST请求的body中发送JSON数据
+        // handle POST
         res.setContentType("application/json");
         res.setStatus(HttpServletResponse.SC_CREATED);
         res.getWriter().write("{ \"status\": \"Lift ride recorded successfully.\" }");
@@ -44,10 +43,8 @@ public class SkierServlet extends HttpServlet {
 
     // 验证 URL 的方法
     private boolean isUrlValid(String[] urlPath) {
-        // 根据实验要求，可以在这里实现URL的具体验证规则
-        // 例如，/skiers/{resortID}/seasons/{seasonID}/days/{dayID}/skiers/{skierID}
+        // example /skiers/{resortID}/seasons/{seasonID}/days/{dayID}/skiers/{skierID}
         if (urlPath.length == 8) {
-            // 检查是否符合期望的路径结构
             // [ , resortID, seasons, seasonID, days, dayID, skiers, skierID ]
             try {
                 Integer.parseInt(urlPath[1]); // resortID
