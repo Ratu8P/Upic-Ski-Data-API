@@ -2,6 +2,7 @@
 
 ## Server
 .war file path for the server: Server/target/SkiServlets-1.0-SNAPSHOT.war
+
 Deploy on Tomcat and test with http://ec2-ip:8080/SkiServlet-1.0-SNAPSHOT/skiers/12/seasons/2019/day/1/skier/123
 
 ## Client 1
