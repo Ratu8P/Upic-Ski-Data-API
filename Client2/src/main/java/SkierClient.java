@@ -96,11 +96,13 @@ public class SkierClient {
         long totalTime = endTime - startTime;
 
         // Print statistics
+        System.out.println("Number of threads: " + NUM_THREADS);
         System.out.println("Total requests: " + TOTAL_REQUESTS);
         System.out.println("Successful requests: " + successCount.get());
         System.out.println("Failed requests: " + failCount.get());
         System.out.println("Total time (ms): " + totalTime);
         System.out.println("Throughput (requests/sec): " + (TOTAL_REQUESTS / (totalTime / 1000.0)));
+        System.out.println("      ");
 
         // Save request log to a CSV file
         try (PrintWriter writer = new PrintWriter(new FileWriter("request_log.csv"))) {

@@ -9,8 +9,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import com.google.gson.Gson;
 
 public class SkierClient {
-    private static final int TOTAL_REQUESTS = 10000;
-    private static final int NUM_THREADS = 1;  // Adjust number of threads
+    private static final int TOTAL_REQUESTS = 200000;
+    private static final int NUM_THREADS = 32;  // Adjust number of threads
     private static final int NUM_REQUESTS = TOTAL_REQUESTS/NUM_THREADS;  // Each thread sends more requests to reach 200,000 requests
     private static final String SERVER_URL = "http://35.82.154.244:8080/SkiServlets-1.0-SNAPSHOT/skiers";
     private static final AtomicInteger successCount = new AtomicInteger(0);
